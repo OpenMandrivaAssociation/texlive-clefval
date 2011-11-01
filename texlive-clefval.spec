@@ -1,0 +1,67 @@
+Name:		texlive-clefval
+Version:	0
+Release:	1
+Summary:	Key/value support with a hash
+Group:		Publishing
+URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/clefval
+License:	LPPL
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.doc.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.source.tar.xz
+BuildArch:	noarch
+BuildRequires:	texlive-tlpkg
+Requires(post):	texlive-tlpkg
+Conflicts:	texlive-texmf <= 20110705-3
+Conflicts:	texlive-doc <= 20110705-3
+Conflicts:	texlive-source <= 20110705-3
+
+%description
+This package provides only two macros viz. \TheKey and
+\TheValue to define then use pairs of key/value and gives a
+semblance of a hash. Syntax: \TheKey{key}{value} to define the
+value associated to the key, does not produce text;
+\TheValue{key} to return the value linked to the key. Both
+arguments of \TheKey are 'moving' as LaTeX defines the term and
+we have sometimes to protect them.
+
+%pre
+    %_texmf_mktexlsr_pre
+
+%post
+    %_texmf_mktexlsr_post
+
+%preun
+    %_texmf_mktexlsr_preun
+
+%postun
+    if [ $1 -eq 0 ]; then
+	%_texmf_mltexlsr_post
+    fi
+
+#-----------------------------------------------------------------------
+%files
+%{_texmfdistdir}/tex/latex/clefval/clefval.sty
+%doc %{_texmfdistdir}/doc/latex/clefval/Changements
+%doc %{_texmfdistdir}/doc/latex/clefval/Changes
+%doc %{_texmfdistdir}/doc/latex/clefval/LISEZMOI
+%doc %{_texmfdistdir}/doc/latex/clefval/README
+%doc %{_texmfdistdir}/doc/latex/clefval/clefval.pdf
+%doc %{_texmfdistdir}/doc/latex/clefval/example.pdf
+%doc %{_texmfdistdir}/doc/latex/clefval/example.tex
+%doc %{_texmfdistdir}/doc/latex/clefval/exemple.pdf
+%doc %{_texmfdistdir}/doc/latex/clefval/exemple.tex
+#- source
+%doc %{_texmfdistdir}/source/latex/clefval/Makefile
+%doc %{_texmfdistdir}/source/latex/clefval/clefval.dtx
+%doc %{_texmfdistdir}/source/latex/clefval/clefval.ins
+%doc %{_texmfdistdir}/source/latex/clefval/fra-clefval.ins
+
+#-----------------------------------------------------------------------
+%prep
+%setup -c -a0 -a1 -a2
+
+%build
+
+%install
+mkdir -p %{buildroot}%{_texmfdistdir}
+cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
