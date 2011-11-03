@@ -1,5 +1,11 @@
+# revision 16549
+# category Package
+# catalog-ctan /macros/latex/contrib/clefval
+# catalog-date 2006-12-07 15:13:33 +0100
+# catalog-license lppl
+# catalog-version undef
 Name:		texlive-clefval
-Version:	0
+Version:	20061207
 Release:	1
 Summary:	Key/value support with a hash
 Group:		Publishing
@@ -57,6 +63,7 @@ we have sometimes to protect them.
 %doc %{_texmfdistdir}/source/latex/clefval/clefval.dtx
 %doc %{_texmfdistdir}/source/latex/clefval/clefval.ins
 %doc %{_texmfdistdir}/source/latex/clefval/fra-clefval.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -67,3 +74,5 @@ we have sometimes to protect them.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
