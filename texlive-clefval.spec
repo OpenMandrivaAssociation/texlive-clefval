@@ -5,8 +5,8 @@
 # catalog-license lppl
 # catalog-version undef
 Name:		texlive-clefval
-Version:	20061207
-Release:	10
+Version:	20170414
+Release:	1
 Summary:	Key/value support with a hash
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/clefval
