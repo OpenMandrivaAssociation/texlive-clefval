@@ -5,7 +5,7 @@
 # catalog-license lppl
 # catalog-version undef
 Name:		texlive-clefval
-Version:	20170414
+Version:	20180303
 Release:	1
 Summary:	Key/value support with a hash
 Group:		Publishing
