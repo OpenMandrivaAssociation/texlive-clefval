@@ -1,19 +1,13 @@
-# revision 16549
-# category Package
-# catalog-ctan /macros/latex/contrib/clefval
-# catalog-date 2006-12-07 15:13:33 +0100
-# catalog-license lppl
-# catalog-version undef
 Name:		texlive-clefval
-Version:	20190228
+Version:	55985
 Release:	1
 Summary:	Key/value support with a hash
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/clefval
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.r55985.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.doc.r55985.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.source.r55985.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -29,52 +23,27 @@ arguments of \TheKey are 'moving' as LaTeX defines the term and
 we have sometimes to protect them.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
-%{_texmfdistdir}/tex/latex/clefval/clefval.sty
-%doc %{_texmfdistdir}/doc/latex/clefval/Changements
-%doc %{_texmfdistdir}/doc/latex/clefval/Changes
-%doc %{_texmfdistdir}/doc/latex/clefval/LISEZMOI
-%doc %{_texmfdistdir}/doc/latex/clefval/README
-%doc %{_texmfdistdir}/doc/latex/clefval/clefval.pdf
-%doc %{_texmfdistdir}/doc/latex/clefval/example.pdf
-%doc %{_texmfdistdir}/doc/latex/clefval/example.tex
-%doc %{_texmfdistdir}/doc/latex/clefval/exemple.pdf
-%doc %{_texmfdistdir}/doc/latex/clefval/exemple.tex
+%{_texmfdistdir}/tex/latex/clefval
+%doc %{_texmfdistdir}/doc/latex/clefval
 #- source
-%doc %{_texmfdistdir}/source/latex/clefval/Makefile
-%doc %{_texmfdistdir}/source/latex/clefval/clefval.dtx
-%doc %{_texmfdistdir}/source/latex/clefval/clefval.ins
-%doc %{_texmfdistdir}/source/latex/clefval/fra-clefval.ins
+%doc %{_texmfdistdir}/source/latex/clefval
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 20061207-2
-+ Revision: 750252
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20061207-1
-+ Revision: 718069
-- texlive-clefval
-- texlive-clefval
-- texlive-clefval
-- texlive-clefval
-- texlive-clefval
-
