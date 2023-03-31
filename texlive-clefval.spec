@@ -1,6 +1,6 @@
 Name:		texlive-clefval
 Version:	55985
-Release:	1
+Release:	2
 Summary:	Key/value support with a hash
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/clefval
