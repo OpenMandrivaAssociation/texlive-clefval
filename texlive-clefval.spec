@@ -3,7 +3,7 @@ Version:	55985
 Release:	2
 Summary:	Key/value support with a hash
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/clefval
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/clefval
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/clefval.doc.r%{version}.tar.xz
